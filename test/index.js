@@ -14,15 +14,6 @@ test('dash-ast', function (t) {
   t.end()
 })
 
-test('dash-ast with .parent', function (t) {
-  var ast = parse(src)
-  var i = 0
-  dash.withParent(ast, function (node) { i++ })
-  t.equal(i, NUM_NODES)
-  t.comment('walked ' + i + ' nodes')
-  t.end()
-})
-
 test('dash-ast with enter/leave', function (t) {
   var ast = parse(src)
   var i = 0

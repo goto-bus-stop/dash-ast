@@ -40,14 +40,6 @@ bench('dash-ast', function (b) {
   b.end('walked ' + i + ' nodes')
 })
 
-bench('dash-ast with .parent', function (b) {
-  var ast = parse(src)
-  b.start()
-  var i = 0
-  dash.withParent(ast, function (node) { i++ })
-  b.end('walked ' + i + ' nodes')
-})
-
 bench('dash-ast with enter/leave', function (b) {
   var ast = parse(src)
   b.start()

@@ -23,34 +23,6 @@ function dashAst (ast, cb) {
   }
 }
 
-/**
- * Call `cb` on each node in `ast`. Each node will have a `.parent` property.
- */
-dashAst.withParent = function dashAstParent (ast, cb) {
-  assert(ast && typeof ast === 'object' && typeof ast.type === 'string',
-    'dash-ast.withParent: ast must be an AST node')
-
-  if (typeof cb === 'object') {
-    assert(typeof cb.enter === 'function' || typeof cb.leave === 'function',
-      'dash-ast.withParent: visitor must be an object with enter/leave functions')
-
-    var enter = cb.enter
-    var leave = cb.leave
-    walk(ast, null, function (node, parent) {
-      node.parent = parent
-      if (enter !== undefined) return enter(node)
-    }, leave ? function (node) { leave(node) } : undefined)
-  } else {
-    assert(cb && typeof cb === 'function',
-      'dash-ast.withParent: callback must be a function')
-
-    walk(ast, null, function (node, parent) {
-      node.parent = parent
-      return cb(node)
-    }, undefined)
-  }
-}
-
 function walk (node, parent, enter, leave) {
   var cont = enter !== undefined ? enter(node, parent) : undefined
   if (cont === false) return
