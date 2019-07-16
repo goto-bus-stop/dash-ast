@@ -10,7 +10,7 @@
     "acorn": "6.2.0",
     "astw": "^2.2.0",
     "estree-walk": "^2.2.0",
-    "estree-walker": "^0.6.1",
+    "estree-walker": "^0.5.2",
     "nanobench": "^2.1.1",
     "standard": "^13.0.0",
     "tape": "^4.11.0"
