@@ -8,56 +8,112 @@ var dash = require('../')
 
 bench('astw', function (b) {
   var ast = parse(src)
-  b.start()
+  // warmup
   var i = 0
-  astw(ast)(function (node) { i++ })
+  for (var x = 0; x < 5; x++) {
+    astw(ast)(function (node) { i++ })
+  }
+  i = 0
+
+  b.start()
+  for (var x = 0; x < 5; x++) {
+    astw(ast)(function (node) { i++ })
+  }
   b.end('walked ' + i + ' nodes')
 })
 
 bench('estree-walk', function (b) {
   var ast = parse(src)
-  b.start()
+  // warmup
   var i = 0
-  eswalk(ast, function (node) { i++ })
+  for (var x = 0; x < 5; x++) {
+    eswalk(ast, function (node) { i++ })
+  }
+  i = 0
+
+  b.start()
+  for (var x = 0; x < 5; x++) {
+    eswalk(ast, function (node) { i++ })
+  }
   b.end('walked ' + i + ' nodes')
 })
 
 bench('estree-walk steps', function (b) {
   var ast = parse(src)
-  b.start()
+  // warmup
   var i = 0
-  for (var q = [ast], node; (node = q.pop()); eswalk.step(node, q)) {
-    i++
+  for (var x = 0; x < 5; x++) {
+    for (var q = [ast], node; (node = q.pop()); eswalk.step(node, q)) {
+      i++
+    }
+  }
+  i = 0
+
+  b.start()
+  for (var x = 0; x < 5; x++) {
+    for (var q = [ast], node; (node = q.pop()); eswalk.step(node, q)) {
+      i++
+    }
   }
   b.end('walked ' + i + ' nodes')
 })
 
 bench('dash-ast', function (b) {
   var ast = parse(src)
-  b.start()
+  // warmup
   var i = 0
-  dash(ast, function (node) { i++ })
+  for (var x = 0; x < 5; x++) {
+    dash(ast, function (node) { i++ })
+  }
+  i = 0
+
+  b.start()
+  for (var x = 0; x < 5; x++) {
+    dash(ast, function (node) { i++ })
+  }
   b.end('walked ' + i + ' nodes')
 })
 
 bench('dash-ast with enter/leave', function (b) {
   var ast = parse(src)
-  b.start()
+  // warmup
   var i = 0
   var j = 0
-  dash(ast, {
-    enter: function (node) { i++ },
-    leave: function (node) { j++ }
-  })
+  for (var x = 0; x < 5; x++) {
+    dash(ast, {
+      enter: function (node) { i++ },
+      leave: function (node) { j++ }
+    })
+  }
+  i = 0
+  j = 0
+
+  b.start()
+  for (var x = 0; x < 5; x++) {
+    dash(ast, {
+      enter: function (node) { i++ },
+      leave: function (node) { j++ }
+    })
+  }
   b.end('walked ' + [i, j] + ' nodes')
 })
 
 bench('estree-walker', function (b) {
   var ast = parse(src)
-  b.start()
+  // warmup
   var i = 0
-  eswalker.walk(ast, {
-    enter: function (node) { i++ }
-  })
+  for (var x = 0; x < 5; x++) {
+    eswalker.walk(ast, {
+      enter: function (node) { i++ }
+    })
+  }
+  i = 0
+
+  b.start()
+  for (var x = 0; x < 5; x++) {
+    eswalker.walk(ast, {
+      enter: function (node) { i++ }
+    })
+  }
   b.end('walked ' + i + ' nodes')
 })
