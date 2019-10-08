@@ -30,10 +30,11 @@ function walk (node, parent, enter, leave) {
   for (var k in node) {
     if (has(node, k)) {
       if (k === 'parent') continue
-      if (isNode(node[k])) {
-        walk(node[k], node, enter, leave)
-      } else if (Array.isArray(node[k])) {
-        walkArray(node[k], node, enter, leave)
+      var v = node[k]
+      if (isNode(v)) {
+        walk(v, node, enter, leave)
+      } else if (Array.isArray(v)) {
+        walkArray(v, node, enter, leave)
       }
     }
   }
