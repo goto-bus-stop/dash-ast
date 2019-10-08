@@ -16,7 +16,7 @@ bench('astw', function (b) {
   i = 0
 
   b.start()
-  for (var x = 0; x < 5; x++) {
+  for (x = 0; x < 5; x++) {
     astw(ast)(function (node) { i++ })
   }
   b.end('walked ' + i + ' nodes')
@@ -32,7 +32,7 @@ bench('estree-walk', function (b) {
   i = 0
 
   b.start()
-  for (var x = 0; x < 5; x++) {
+  for (x = 0; x < 5; x++) {
     eswalk(ast, function (node) { i++ })
   }
   b.end('walked ' + i + ' nodes')
@@ -50,8 +50,8 @@ bench('estree-walk steps', function (b) {
   i = 0
 
   b.start()
-  for (var x = 0; x < 5; x++) {
-    for (var q = [ast], node; (node = q.pop()); eswalk.step(node, q)) {
+  for (x = 0; x < 5; x++) {
+    for (q = [ast], node; (node = q.pop()); eswalk.step(node, q)) {
       i++
     }
   }
@@ -68,7 +68,7 @@ bench('dash-ast', function (b) {
   i = 0
 
   b.start()
-  for (var x = 0; x < 5; x++) {
+  for (x = 0; x < 5; x++) {
     dash(ast, function (node) { i++ })
   }
   b.end('walked ' + i + ' nodes')
@@ -89,7 +89,7 @@ bench('dash-ast with enter/leave', function (b) {
   j = 0
 
   b.start()
-  for (var x = 0; x < 5; x++) {
+  for (x = 0; x < 5; x++) {
     dash(ast, {
       enter: function (node) { i++ },
       leave: function (node) { j++ }
@@ -110,7 +110,7 @@ bench('estree-walker', function (b) {
   i = 0
 
   b.start()
-  for (var x = 0; x < 5; x++) {
+  for (x = 0; x < 5; x++) {
     eswalker.walk(ast, {
       enter: function (node) { i++ }
     })
