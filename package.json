@@ -35,6 +35,7 @@
     "url": "https://github.com/goto-bus-stop/dash-ast.git"
   },
   "scripts": {
-    "test": "standard && node test && node bench"
+    "test": "standard && node test && node bench",
+    "test:ci": "node test && node bench"
   }
 }
