@@ -43,16 +43,6 @@ Call `callback(node, parent)` on each node in `ast`. This does a preorder traver
 
 Call `enter(node, parent)` on each node in `ast` before traversing its children, and call `leave(enter, parent)` on each node _after_ traversing its children. If a node does not have children, `enter()` and `leave()` are called immediately after each other.
 
-### `dashAst.withParent(ast, callback)`
-
-Call `callback(node)` on each node in `ast`. This does a preorder traversal, i.e. `callback` receives child nodes _after_ the parent node.
-Each `node` has an additional property `node.parent` referring to the parent node.
-
-### `dashAst.withParent(ast, { enter, leave })`
-
-Call `enter(node, parent)` on each node in `ast` before traversing its children, and call `leave(enter, parent)` on each node _after_ traversing its children. If a node does not have children, `enter()` and `leave()` are called immediately after each other.
-Each `node` has an additional property `node.parent` referring to the parent node.
-
 ## License
 
 [Apache-2.0](LICENSE.md)
