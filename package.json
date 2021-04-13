@@ -7,7 +7,7 @@
     "url": "https://github.com/goto-bus-stop/dash-ast/issues"
   },
   "devDependencies": {
-    "acorn": "7.3.1",
+    "acorn": "8.1.1",
     "astw": "^2.2.0",
     "estree-walk": "^2.2.0",
     "estree-walker": "^2.0.0",
