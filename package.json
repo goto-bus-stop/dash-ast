@@ -10,7 +10,7 @@
     "acorn": "8.1.1",
     "astw": "^2.2.0",
     "estree-walk": "^2.2.0",
-    "estree-walker": "^2.0.0",
+    "estree-walker": "^3.0.1",
     "nanobench": "^2.1.1",
     "semver": "^6.3.0",
     "standard": "^15.0.0",
