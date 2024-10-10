@@ -3,7 +3,7 @@ var src = require('fs').readFileSync(require.resolve('acorn'))
 var parse = require('acorn').parse
 var dash = require('../')
 
-var NUM_NODES = 27181
+var NUM_NODES = 27660
 
 test('dash-ast', function (t) {
   var ast = parse(src)
